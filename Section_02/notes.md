@@ -62,3 +62,18 @@ Managing complexity - make it readable.
 Abstraction - for managing complexity by considering things at a higher level
 
 Encapsulation - a means of ensuring that abstractions are adhered to.
+
+
+####Lecture 30 - Pseudocode Programming
+TODO - note where existing code needs to change.
+Other comments for new functionality.
+
+using int32 = int;            substituting unreal programming standard language.
+                              int32 rather than int is for cross platform conformity.
+
+using FText = std::string;    FText indicates display string.  Any text that
+                              is to be displayed to a user should be in FText
+                              format.  Used for localisation etc. (immutable)
+
+using FString = std::string;  FString is a string type that can be manipulated.
+                              (mutable)
