@@ -17,6 +17,7 @@ using int32 = int;
 
 // prototypes
 void PrintIntro();
+void PrintSummary();
 void PlayGame();
 FText GetValidGuess();
 bool AskToPlayAgain();
@@ -46,18 +47,28 @@ void PrintIntro()
     return;
 }
 
+void PrintSummary()
+{
+    if (BCGame.GetWinStatus())
+    {
+        std::cout << "Well played, you win!\n";
+    }
+    else
+    {
+        std::cout << "Better luck next time.\n";
+    }
+    return;
+}
+
 // run the game
 void PlayGame()
 {
     BCGame.Reset();
     int32 MaxTries = BCGame.GetMaxTries();
     
-    // loop for number of turns asking for guesses
-    for (int32 Iterator = 0; Iterator < MaxTries; Iterator++)
+    while (!BCGame.GetWinStatus() && BCGame.GetCurrentTry() <= MaxTries)
     {
         FText Guess = GetValidGuess();
-        
-        // submit valid guess to the game and receive counts
         FBullCowCount BullCowCount = BCGame.SubmitValidGuess(Guess);
         
         std::cout   << "Bulls = " << BullCowCount.Bulls
@@ -65,7 +76,7 @@ void PlayGame()
                     << std::endl;
     }
     
-    // TODO add game summary
+    PrintSummary();
     
     return;
 }
@@ -102,7 +113,7 @@ FText GetValidGuess()
 
 bool AskToPlayAgain()
 {
-    std::cout << "\nPlay Again? (y/n): ";
+    std::cout << "\nPlay Again with the same hidden word? (y/n): ";
     FText Answer = "";
     std::getline(std::cin, Answer);
     return Answer[0] == 'y' || Answer[0] == 'Y';

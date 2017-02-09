@@ -17,7 +17,7 @@ int32 FBullCowGame::GetCurrentTry() const { return MyCurrentTry; }
 
 int32 FBullCowGame::GetHiddenWordLength() const { return (int32)MyHiddenWord.length(); }
 
-bool FBullCowGame::GetWinStatus() const { return false; }
+bool FBullCowGame::GetWinStatus() const { return bIsGameWon; }
 
 
 void FBullCowGame::Reset()
@@ -28,6 +28,7 @@ void FBullCowGame::Reset()
     MyMaxTries = MAX_TRIES;
     MyHiddenWord = HIDDEN_WORD;
     MyCurrentTry = 1;
+    bIsGameWon = false;
     
     return;
 }
@@ -36,17 +37,17 @@ EGuessStatus FBullCowGame::GetGuessValidity(FString Guess) const
 {
     if (false) // if guess isn't an isogram
     {
-        return EGuessStatus::NotIsogram;
+        return EGuessStatus::NotIsogram; // TODO write code to check if isogram
     }
-    else if (Guess.length() != GetHiddenWordLength()) // if the guess isn't the right length
+    else if (Guess.length() != GetHiddenWordLength())
     {
         return EGuessStatus::WrongLength;
     }
     else if (false) // if the guess isn't lowercase
     {
-        return EGuessStatus::NotLowercase;
+        return EGuessStatus::NotLowercase; // TODO write code to check case
     }
-    else // otherwise
+    else
     {
         return EGuessStatus::OK;
     }
@@ -56,22 +57,26 @@ FBullCowCount FBullCowGame::SubmitValidGuess(FString Guess)
 {
     MyCurrentTry++;
     FBullCowCount BullCowCount;
+    int32 WordLength = (int32)MyHiddenWord.length(); // valid Guess is same length.
     
-    for (int32 i = 0; i < MyHiddenWord.length(); i++)
+    for (int32 MHWChar = 0; MHWChar < WordLength; MHWChar++)
     {
-        for (int32 j = 0; j < MyHiddenWord.length(); j++)
+        for (int32 GChar = 0; GChar < WordLength; GChar++)
         {
-            if (i == j && Guess[i] == MyHiddenWord[i])
+            if (Guess[GChar] == MyHiddenWord[MHWChar])
             {
-                BullCowCount.Bulls++;
-            }
-            else if (i != j && Guess[i] == MyHiddenWord[j])
-            {
-                BullCowCount.Cows++;
-            }
-            else
-            {
-                // nothing;
+                if (GChar == MHWChar)
+                {
+                    BullCowCount.Bulls++;
+                    if (BullCowCount.Bulls == GetHiddenWordLength()) {
+                        bIsGameWon = true;
+                    }
+                }
+                else
+                {
+                    BullCowCount.Cows++;
+                }
+                
             }
         }
     }
