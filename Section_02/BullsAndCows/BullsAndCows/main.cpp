@@ -58,7 +58,7 @@ void PlayGame()
         FText Guess = GetValidGuess();
         
         // submit valid guess to the game and receive counts
-        FBullCowCount BullCowCount = BCGame.SubmitGuess(Guess);
+        FBullCowCount BullCowCount = BCGame.SubmitValidGuess(Guess);
         
         std::cout   << "Bulls = " << BullCowCount.Bulls
                     << " Cows = " << BullCowCount.Cows

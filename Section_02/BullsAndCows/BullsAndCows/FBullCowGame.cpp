@@ -52,7 +52,7 @@ EGuessStatus FBullCowGame::GetGuessValidity(FString Guess) const
     }
 }
 
-FBullCowCount FBullCowGame::SubmitGuess(FString Guess)
+FBullCowCount FBullCowGame::SubmitValidGuess(FString Guess)
 {
     MyCurrentTry++;
     FBullCowCount BullCowCount;

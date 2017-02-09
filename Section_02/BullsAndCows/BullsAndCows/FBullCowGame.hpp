@@ -43,7 +43,7 @@ public:
     bool GetWinStatus() const;
     EGuessStatus GetGuessValidity(FString Guess) const;
     
-    FBullCowCount SubmitGuess(FString Guess);
+    FBullCowCount SubmitValidGuess(FString Guess);
     
 private:
     // see constructor for initialisation.
