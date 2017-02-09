@@ -8,9 +8,9 @@
 
 #include "FBullCowGame.hpp"
 
-FBullCowGame::FBullCowGame() { FBullCowGame::Reset(); }
+FBullCowGame::FBullCowGame() { FBullCowGame::Reset(); } // Constructor
 
-
+// Getters
 int32 FBullCowGame::GetMaxTries() const { return 3; }
 
 int32 FBullCowGame::GetCurrentTry() const { return MyCurrentTry; }
@@ -32,9 +32,24 @@ void FBullCowGame::Reset()
     return;
 }
 
-bool FBullCowGame::GetGuessValidity(FString) const
+EGuessStatus FBullCowGame::GetGuessValidity(FString Guess) const
 {
-    return false;
+    if (false) // if guess isn't an isogram
+    {
+        return EGuessStatus::NotIsogram;
+    }
+    else if (Guess.length() != GetHiddenWordLength()) // if the guess isn't the right length
+    {
+        return EGuessStatus::WrongLength;
+    }
+    else if (false) // if the guess isn't lowercase
+    {
+        return EGuessStatus::NotLowercase;
+    }
+    else // otherwise
+    {
+        return EGuessStatus::OK;
+    }
 }
 
 FBullCowCount FBullCowGame::SubmitGuess(FString Guess)
