@@ -39,11 +39,14 @@ int main(void)
     return 0;
 }
 
+
 // introduce the game
 void PrintIntro()
 {
-    std::cout << "Welcome to Bulls and Cows, a fun word game!\n";
-    std::cout << "Can you guess the " << BCGame.GetHiddenWordLength() << " letter word I'm thinking of?\n";
+    std::cout << "**************************************************";
+    std::cout << "\n\n Welcome to Bulls and Cows, a fun word game!\n";
+    std::cout << " Can you guess the " << BCGame.GetHiddenWordLength() << " letter word I'm thinking of?\n\n";
+    std::cout << "**************************************************\n\n";
     return;
 }
 
@@ -51,7 +54,9 @@ void PrintSummary()
 {
     if (BCGame.GetWinStatus())
     {
-        std::cout << "Well played, you win!\n";
+        std::cout << "*************************\n\n";
+        std::cout << "  Well played, you win!\n\n";
+        std::cout << "*************************\n\n";
     }
     else
     {
@@ -70,10 +75,11 @@ void PlayGame()
     {
         FText Guess = GetValidGuess();
         FBullCowCount BullCowCount = BCGame.SubmitValidGuess(Guess);
-        
-        std::cout   << "Bulls = " << BullCowCount.Bulls
-                    << " Cows = " << BullCowCount.Cows
+        std::cout << "------------------------\n";
+        std::cout   << " Bulls = " << BullCowCount.Bulls
+                    << "  |  Cows = " << BullCowCount.Cows
                     << std::endl;
+        std::cout << "------------------------\n\n";
     }
     
     PrintSummary();
@@ -87,23 +93,23 @@ FText GetValidGuess()
     EGuessStatus Status = EGuessStatus::Invalid;
     
     do {
-        std::cout << "\nTry " << BCGame.GetCurrentTry() << " Enter your guess: ";
+        std::cout << "Try " << BCGame.GetCurrentTry() << " of " << BCGame.GetMaxTries() << ": Enter your guess: ";
         std::getline(std::cin, Guess);
     
         Status = BCGame.GetGuessValidity(Guess);
         
         switch (Status) {
             case EGuessStatus::NotIsogram:
-                std::cout << "\nYour guess must not have any repeated letters.\n";
+                std::cout << "Your guess must not have any repeated letters.\n\n";
                 break;
             case EGuessStatus::WrongLength:
-                std::cout << "\nYour guess must be " << BCGame.GetHiddenWordLength() << " letters long.\n";
+                std::cout << "Your guess must be " << BCGame.GetHiddenWordLength() << " letters long.\n\n";
                 break;
             case EGuessStatus::NotLowercase:
-                std::cout << "\nYour guess must use only lowercase letters.\n";
+                std::cout << "Your guess must use only lowercase letters.\n\n";
                 break;
             default:
-                std::cout << "\nGood Guess!\n";
+                std::cout << "Good Guess!\n\n";
                 break;
         }
     } while (Status != EGuessStatus::OK);

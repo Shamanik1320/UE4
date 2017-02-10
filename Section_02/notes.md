@@ -78,3 +78,28 @@ using FText = std::string;    FText indicates display string.  Any text that
 using FString = std::string;  FString is a string type that can be manipulated.
                               (mutable)
 ####Lecture 42 - Big 'O' Notation
+
+Number of comparisons necessary to check the letters of the word 'planet'
+  P L A N E T         x = unnecessary to compare letter to itself.
+P x . . . . .         o = comparison in one direction
+L o x . . . .         . = comparison in other direction
+A o o x . . .
+N o o o x . .         unnecessary to compare in both directions so
+E o o o o x .         number of letters (n) times itself (whole range including
+T o o o o o x         unnecessary comparisons) - n (number of letters to remove
+                      comparisons to self) divided by 2 (to remove unnecessary
+                      duplication of comparisons) gives the number of necessary
+                      comparisons, ie: ((n^2)-n)/2
+
+So a word of ten letter would require ((10*10)-10)/2 or 45 comparisons.  This is an
+exponential increase in number of operations which is noted as O(n^2).  exponential
+increases in operations to solve problems are inefficient solutions.
+
+O(n) would be the theoretical fastest - any comparison would need to look at each
+letter in the word at least once.
+
+Using a sorting algorithm can achieve O(n log n), so sorting followed by a check for
+repeating letters in the sorted list should be much faster than a simple loop
+comparing each letter to each other letter.
+
+Using a hash table to count instances is even better.  You can achieve O(n) this way.

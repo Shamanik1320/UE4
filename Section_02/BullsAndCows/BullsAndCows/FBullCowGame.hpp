@@ -10,7 +10,6 @@
 #define FBullCowGame_hpp
 
 #include <string>
-#include <cstdint>
 
 using FString = std::string;
 using int32 = int;
@@ -50,6 +49,9 @@ private:
     int32 MyMaxTries;
     FString MyHiddenWord;
     bool bIsGameWon;
+    
+    bool IsIsogram(FString Guess) const;
+    bool IsLowerCase(FString Guess) const;
 };
 
 #endif /* FBullCowGame_hpp */
