@@ -1,16 +1,20 @@
 //
-//  FBullCowGame.hpp
+//  FBullCowGame.hpp -  describes the FBullCowGame class and the data structures
+//                      used in it.
 //  BullsAndCows
 //
 //  Created by Tristan McGuire on 07/02/2017.
 //  Copyright © 2017 Tristan McGuire. All rights reserved.
 //
 
+#pragma once
+
 #ifndef FBullCowGame_hpp
 #define FBullCowGame_hpp
 
 #include <string>
 
+// Substitutions to emulate Unreal syntax/types. 
 using FString = std::string;
 using int32 = int;
 

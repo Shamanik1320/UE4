@@ -1,5 +1,5 @@
 //
-//  FBullCowGame.cpp
+//  FBullCowGame.cpp - Implements the functionality of the FBullCowGame class.
 //  BullsAndCows
 //
 //  Created by Tristan McGuire on 07/02/2017.
@@ -8,12 +8,16 @@
 
 #include "FBullCowGame.hpp"
 #include <map>
-#define TMap std::map
+#define TMap std::map // Substitution to emulate Unreal syntax/types. 
 
 FBullCowGame::FBullCowGame() { FBullCowGame::Reset(); } // Constructor
 
 // Getters
-int32 FBullCowGame::GetMaxTries() const { return 3; }
+int32 FBullCowGame::GetMaxTries() const
+{
+    TMap<int32, int32> WordLengthToMaxTries {{3,5},{4,6},{5,7},{6,8},{7,9}};
+    return WordLengthToMaxTries[(int32)MyHiddenWord.length()];
+}
 
 int32 FBullCowGame::GetCurrentTry() const { return MyCurrentTry; }
 
@@ -25,7 +29,7 @@ bool FBullCowGame::GetWinStatus() const { return bIsGameWon; }
 void FBullCowGame::Reset()
 {
     constexpr int32 MAX_TRIES = 3;
-    const FString HIDDEN_WORD = "planet";
+    const FString HIDDEN_WORD = "plane";
     
     MyMaxTries = MAX_TRIES;
     MyHiddenWord = HIDDEN_WORD;

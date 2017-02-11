@@ -12,6 +12,7 @@
 #include <iostream>
 #include "FBullCowGame.hpp"
 
+// Substitutions to emulate Unreal syntax/types. 
 using FText = std::string;
 using int32 = int;
 

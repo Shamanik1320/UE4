@@ -103,3 +103,22 @@ repeating letters in the sorted list should be much faster than a simple loop
 comparing each letter to each other letter.
 
 Using a hash table to count instances is even better.  You can achieve O(n) this way.
+
+#### Lecture 47 - Difficulty and Play tuning
+
+Flow channel - balance between difficulty and opportunity to overcome difficulty.
+Too difficult, not enough opportunity = anxiety and dislike because "too difficult"
+Too easy, too many opportunities to solve easy problems = boredom because "too easy"
+
+In Bulls and Cows game this is implemented in the GetMaxTries() - getting the number of
+tries based on the word length.
+
+###Udemy UE and C++ - Section 3 - Escape the building game in UE
+
+#### Lecture 51 - Game Design Document
+
+Concept -
+
+The core concept is simple: Escape the room
+You awaken in a locked room, unable to get outputs
+Use environmental clues like light and sound to determine what to do next.
