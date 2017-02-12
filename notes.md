@@ -122,3 +122,28 @@ Concept -
 The core concept is simple: Escape the room
 You awaken in a locked room, unable to get outputs
 Use environmental clues like light and sound to determine what to do next.
+Trigger pressure plates and solve puzzles to progress.
+
+Rules -
+
+No lose condition other than being unable to leave the room
+Anything that you can do you are allowed to do.
+Win condition - leaving the room.
+
+Requirements -
+
+Unreal's provided content (starter)
+C++ and Blueprint to encode behaviour
+Various sound effects to enhance atmosphere
+Sketches for layout of room(s)
+Sketches for how puzzles work
+
+#### Lecture 52 - Version Control (I'm using git)
+
+others include:
+- mercurial
+- perforce
+- subversion/tortoiseSVN
+- alienbrain (primarily for art - seeing the difference between two images etc., expensive)
+
+udemy course lecturer is using SourceTree (Atlassian) - front-end to git or mercurial
