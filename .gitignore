@@ -25,6 +25,7 @@
 *.log
 *.sql
 *.sqlite
+**/xcuserdata
 
 # OS generated files #
 ######################
@@ -35,6 +36,7 @@
 .Trashes
 ehthumbs.db
 Thumbs.db
+
 
 # Compiled Object files
 *.slo

@@ -147,3 +147,29 @@ others include:
 - alienbrain (primarily for art - seeing the difference between two images etc., expensive)
 
 udemy course lecturer is using SourceTree (Atlassian) - front-end to git or mercurial
+
+#### Lecture 56 - pointers
+
+AActor* SomeActor;
+
+The AActor class has a method called GetName();
+
+You could write (\*SomeActor).GetName();
+
+or you can use the -> by writing: SomeActor->GetName;
+
+#### Lecture 57 - Inheritance/Components
+Inheritance -
+"is a" relationship.
+e.g - a dog 'is a' mammal and a mammal 'is a(n)' animal.
+Character is a Pawn, Pawn is an Actor.
+Character has all the characteristics of Pawn and by extension has all the characteristics of
+an actor.
+Can be inflexible and difficult to refactor if relied on too heavily.
+
+
+Components -
+"has a" relationship
+e.g. - the chair and the rock 'has a' PositionReporter
+Objects become rich through having many components.
+Can be flexible if used properly.
